@@ -11,6 +11,18 @@ Using OpenSERP, you can get search results from **Google**, **Yandex**, **Baidu*
 
 See [Docker](#docker) and [CLI](#cli) usage examples below ([search](#search), [images](#images)).
 
+## 本地部署
+* 编译
+```bash
+# 在当前目录(main.go)编译
+go build -o openserp .
+
+# 运行服务端（config.yaml与openserp同目录，通过启动参数可以修改相关配置）
+./openserp serve
+```
+
+
+
 ## Docker usage  <a name="docker"></a> 🐳
 * Run API server:
 ```bash

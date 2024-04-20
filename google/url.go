@@ -56,7 +56,7 @@ var GoogleDomains = map[string]string{
 	"ck":  "co.ck",
 	"cl":  "cl",
 	"cm":  "cm",
-	"cn":  "cn",
+	"cn":  "com",
 	"co":  "com.co",
 	"cr":  "co.cr",
 	"cu":  "com.cu",
@@ -258,7 +258,11 @@ func BuildURL(q core.Query) (string, error) {
 		params.Add("num", strconv.Itoa(q.Limit))
 	}
 
-	if q.LangCode != "" {
+	if q.LangCode != "" && strings.ToLower(q.LangCode) == "cn" {
+		params.Add("hl", "zh-CN")
+		params.Add("lr", "lang_zh-CN")
+		params.Add("cr", "countryCN")
+	} else if q.LangCode != "" {
 		params.Add("hl", q.LangCode)
 		params.Add("lr", "lang_"+strings.ToLower(q.LangCode))
 	}

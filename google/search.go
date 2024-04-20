@@ -104,6 +104,7 @@ func (gogl *Google) Search(query core.Query) ([]core.SearchResult, error) {
 	if err != nil {
 		return nil, err
 	}
+	logrus.Infof("url:%s", url)
 	page := gogl.Navigate(url)
 	defer gogl.close(page)
 	gogl.preparePage(page)
